@@ -13,4 +13,9 @@ public class CoalController : MonoBehaviour
     {
         
     }
+
+    void Coal()
+    {
+        //Player picks up coal
+    }
 }
