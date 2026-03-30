@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        Vector3 mousePosition = Input.mousePosition;
+        /*Vector3 mousePosition = Input.mousePosition;
         Vector3 cursorPoint = mainCamera.WorldToScreenPoint(transform.localPosition);
 
         if (mousePosition.x < cursorPoint.x)
@@ -49,15 +49,15 @@ public class PlayerController : MonoBehaviour
         else
         {
             transform.localScale = Vector3.one;
-        }
+        }*/
 
 
        
 
         // Player movement
 
-        Vector2 offset = new Vector2(mousePosition.x - cursorPoint.x, mousePosition.y - cursorPoint.y);
-        float angle = Mathf.Atan2(offset.y, offset.x) * Mathf.Rad2Deg;
+        //Vector2 offset = new Vector2(mousePosition.x - cursorPoint.x, mousePosition.y - cursorPoint.y);
+        //float angle = Mathf.Atan2(offset.y, offset.x) * Mathf.Rad2Deg;
 
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
