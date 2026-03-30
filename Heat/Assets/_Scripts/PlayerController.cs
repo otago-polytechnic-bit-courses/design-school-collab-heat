@@ -13,6 +13,10 @@ public class PlayerController : MonoBehaviour
     private Camera mainCamera;
 
     public int currentHealth;
+
+    public float energyLoss = 50;
+
+    public int playerCoal = 0;
     
    
     private void Start()
@@ -37,6 +41,12 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (movement.magnitude > 0) // player is moving
+        {
+            currentHealth -= Mathf.RoundToInt(energyLoss * Time.deltaTime);
+            currentHealth = Mathf.Max(currentHealth, 0); // prevent negative health
+        }
+
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
@@ -56,5 +66,11 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Game over method");
         Time.timeScale = 0f;
     }
+  
+    // Correct signature: Collision2D for 2D physics
+    //private void OnCollisionEnter2D(Collision2D collision)
+   //{
+   //     playerCoal += 1;
+   // }
 
 }
