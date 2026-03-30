@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 
@@ -14,7 +15,7 @@ public class PlayerController : MonoBehaviour
 
     public int currentHealth;
 
-    public float energyLoss = 50;
+    public float energyLoss = 100;
 
     public int playerCoal = 0;
     
@@ -22,7 +23,8 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         currentHealth = 6000;
-        mainCamera = Camera.main;    
+        mainCamera = Camera.main; 
+        Debug.Log(playerCoal);   
     }
     private void Awake()
     {
@@ -67,10 +69,14 @@ public class PlayerController : MonoBehaviour
         Time.timeScale = 0f;
     }
   
-    // Correct signature: Collision2D for 2D physics
-    //private void OnCollisionEnter2D(Collision2D collision)
-   //{
-   //     playerCoal += 1;
-   // }
-
+    //Correct signature: Collision2D for 2D physics
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("CoalDeposit"))
+        {
+            playerCoal += 1;
+            Debug.Log(playerCoal); 
+        }
+        
+    }
 }
