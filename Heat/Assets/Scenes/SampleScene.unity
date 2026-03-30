@@ -517,7 +517,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Energy: 5000
+  m_text: 'Energy: 0
 
 '
   m_isRightToLeft: 0
@@ -611,6 +611,7 @@ GameObject:
   - component: {fileID: 275571491}
   - component: {fileID: 275571490}
   - component: {fileID: 275571489}
+  - component: {fileID: 275571493}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -701,6 +702,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &275571493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 275571488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dc3e05f59bf62e4c861917dcae0a37c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
+  playerController: {fileID: 1037719979}
+  HeatEnergy: {fileID: 151472490}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1033,6 +1048,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1037719978}
   - component: {fileID: 1037719979}
+  - component: {fileID: 1037719980}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1070,7 +1086,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   rb: {fileID: 778593208}
   moveSpeed: 7
-  Player: {fileID: 1037719977}
+  currentHealth: 10
+--- !u!114 &1037719980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1037719977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dc3e05f59bf62e4c861917dcae0a37c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HudManager
+  playerController: {fileID: 1037719979}
+  HeatEnergy: {fileID: 151472490}
 --- !u!1 &1041768304
 GameObject:
   m_ObjectHideFlags: 0

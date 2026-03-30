@@ -1,16 +1,13 @@
 using UnityEngine;
+using TMPro;
 
 public class HudManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public PlayerController playerController;
+    public TextMeshProUGUI HeatEnergy;
 
-    // Update is called once per frame
     void Update()
     {
-        
+        HeatEnergy.text = "Energy: " + playerController.currentHealth;
     }
 }
