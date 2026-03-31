@@ -267,7 +267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Furnace
   pickup: {fileID: 321204048}
-  gameController: {fileID: 493812996}
+  PlayerController: {fileID: 0}
 --- !u!1 &452905634
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,7 +301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Pickup
   pickup: {fileID: 452905634}
-  gameController: {fileID: 493812996}
+  playerController: {fileID: 0}
 --- !u!65 &452905636
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -391,54 +391,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 10, y: 0.75, z: 10}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &493812995
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 493812997}
-  - component: {fileID: 493812996}
-  m_Layer: 0
-  m_Name: Game
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &493812996
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 493812995}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e05bd16b047e6f499e04ec74285d484, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GameController
-  healthBar: {fileID: 1439321025}
-  healthBarText: {fileID: 2106187503}
-  coalPickedUpText: {fileID: 608474410}
-  player: {fileID: 691212710}
---- !u!4 &493812997
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 493812995}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 121.98369, y: -0.00001, z: 796.2235}
-  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -822,6 +774,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55c674221c9251e43b68a99b3da09e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
+  healthBar: {fileID: 0}
+  healthBarText: {fileID: 0}
+  coalCountText: {fileID: 0}
+  crystalCountText: {fileID: 0}
+  player: {fileID: 0}
 --- !u!143 &691212713
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1996,7 +1953,6 @@ SceneRoots:
   - {fileID: 543172774}
   - {fileID: 691212718}
   - {fileID: 452905639}
-  - {fileID: 493812997}
   - {fileID: 1265124934}
   - {fileID: 1996699252}
   - {fileID: 1610021524}

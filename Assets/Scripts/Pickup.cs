@@ -2,9 +2,8 @@ using UnityEngine;
 
 public class Pickup : MonoBehaviour
 {
-
     [SerializeField] GameObject pickup;
-    [SerializeField] GameController gameController;
+    [SerializeField] PlayerController playerController;
 
     void OnTriggerEnter(Collider other)
     {
@@ -12,7 +11,15 @@ public class Pickup : MonoBehaviour
 
         if (other.CompareTag("Player"))
         {
-            gameController.SlightlyFillHealthBar();
+            if (pickup.CompareTag("Coal"))
+            {
+                playerController.SlightlyFillHealthBar();
+            }
+            else if (pickup.CompareTag("Crystal"))
+            {
+                playerController.AddCrystal();
+            }
+
             Destroy(pickup);
         }
     }

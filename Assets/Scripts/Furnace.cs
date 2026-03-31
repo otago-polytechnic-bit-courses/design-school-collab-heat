@@ -3,8 +3,8 @@ using UnityEngine;
 public class Furnace : MonoBehaviour
 {
 
-    [SerializeField] GameObject pickup;
-    [SerializeField] GameController gameController;
+    [SerializeField] GameObject furnace;
+    [SerializeField] PlayerController PlayerController;
 
     bool isNearFurnace = false;
     
@@ -13,7 +13,7 @@ public class Furnace : MonoBehaviour
     {
         if (isNearFurnace)
         {
-            gameController.FillHealthBar();
+            PlayerController.FillHealthBar();
         }
     }
 
