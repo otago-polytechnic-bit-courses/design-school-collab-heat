@@ -6,7 +6,10 @@ public class GameController : MonoBehaviour
 {
     [SerializeField] Slider healthBar;
     [SerializeField] TextMeshProUGUI healthBarText;
+    [SerializeField] TextMeshProUGUI coalPickedUpText;
     [SerializeField] GameObject player;
+
+    int coalCount = 0;
 
     private void Update()
     {
@@ -16,16 +19,22 @@ public class GameController : MonoBehaviour
         {
             player.SetActive(false);
         }
+
+        if (coalPickedUpText.text != "Coal Picked Up: " + coalCount)
+        {
+            coalPickedUpText.text = "Coal Picked Up: " + coalCount;
+        }
     }
 
     public void FillHealthBar()
     {
-        healthBar.value = 0.0f; //Sets health to max
+        healthBar.value -= Time.deltaTime * 20f; //Slowly health to max
     }
 
     public void SlightlyFillHealthBar()
     {
         healthBar.value -= 5.0f; //Change value based on max health/slider value
+        coalCount++;
     }
 
 }
