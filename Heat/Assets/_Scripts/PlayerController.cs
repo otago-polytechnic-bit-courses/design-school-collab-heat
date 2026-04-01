@@ -6,9 +6,9 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float moveSpeed = 4;
-    //[SerializeField] GameObject Player;
+    [SerializeField] GameObject Player;
     
-       public static PlayerController Instance;
+    public static PlayerController Instance;
     private Vector2 movement;
   
     private Camera mainCamera;
@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
 
     public float energyLoss = 100;
 
-    public int playerCoal = 0;
+    public int playerCoal;
     
    
     private void Start()
@@ -43,6 +43,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(playerCoal);
         if (movement.magnitude > 0) // player is moving
         {
             currentHealth -= Mathf.RoundToInt(energyLoss * Time.deltaTime);
@@ -70,13 +71,16 @@ public class PlayerController : MonoBehaviour
     }
   
     //Correct signature: Collision2D for 2D physics
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("CoalDeposit"))
+        Debug.Log("Triggered with: " + collision.name);
+
+        if (collision.CompareTag("CoalDeposit"))
         {
+            Debug.Log("Coal detected");
             playerCoal += 1;
-            Debug.Log(playerCoal); 
+            Debug.Log("playerCoal");
         }
-        
     }
+
 }
