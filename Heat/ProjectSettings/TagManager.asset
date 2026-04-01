@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - CoalDeposit
+  - Coal
   layers:
   - Default
   - TransparentFX
