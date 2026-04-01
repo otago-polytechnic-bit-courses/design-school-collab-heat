@@ -8,6 +8,7 @@ TagManager:
   - Coal
   - Furnace
   - HeatCoal
+  - EnergyLoss
   layers:
   - Default
   - TransparentFX

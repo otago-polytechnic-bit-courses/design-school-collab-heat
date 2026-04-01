@@ -15,14 +15,14 @@ public class PlayerController : MonoBehaviour
 
     public int currentHealth;
 
-    public float energyLoss = 100;
+    public float energyLoss = 70;
 
-    public int playerCoal;
+    public int playerCoal = 0;
     
    
     private void Start()
     {
-        energyLoss = 100;
+        energyLoss = 70;
         currentHealth = 6000;
         mainCamera = Camera.main; 
         Debug.Log(playerCoal);   
@@ -86,9 +86,13 @@ public class PlayerController : MonoBehaviour
         if (collision.CompareTag("Furnace"))
         {
             Debug.Log("Furnace detected");
-            playerCoal -= 1;
-            energyLoss -= 10;
-            Debug.Log("Coal conerted to energy!");
+            if (playerCoal >= 0)
+            {
+                playerCoal -= 1;
+                energyLoss -= 10;
+                Debug.Log("Coal conerted to energy!");
+            }
+            
 
         }
     }
