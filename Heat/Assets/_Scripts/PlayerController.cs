@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
    
     private void Start()
     {
+        energyLoss = 100;
         currentHealth = 6000;
         mainCamera = Camera.main; 
         Debug.Log(playerCoal);   
@@ -80,6 +81,15 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Coal detected");
             playerCoal += 1;
             Debug.Log("playerCoal");
+        }
+
+        if (collision.CompareTag("Furnace"))
+        {
+            Debug.Log("Furnace detected");
+            playerCoal -= 1;
+            energyLoss -= 10;
+            Debug.Log("Coal conerted to energy!");
+
         }
     }
 
