@@ -1,14 +1,16 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ProgressBarController : MonoBehaviour
 {
     [Header("Progress Bar Settings")]
-    [SerializeField] public float maxValue = 100f;
+    [SerializeField] public float maxValue;
     [SerializeField] public float startValue;
 
     [SerializeField] Image progressBar;
     [SerializeField] GameObject limitReachedIndicator;
+    [SerializeField] TextMeshProUGUI valueText;
 
     public float CurrentValue { get; private set; }
     public event System.Action BarUpdate;
@@ -32,6 +34,8 @@ public class ProgressBarController : MonoBehaviour
     {
         if (limitReachedIndicator != null)
             limitReachedIndicator.SetActive(CurrentValue >= maxValue);
+
+        valueText.SetText($"{CurrentValue.ToString("F0")}/{maxValue}");
     }
 
     private void OnEnable()

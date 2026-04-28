@@ -52,6 +52,9 @@ public class PlayerController : MonoBehaviour
         //Jump logic
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+
+        //Coal number
+        coalCounterText.SetText($"{coalNum.ToString()}");
     }
 
 
@@ -64,19 +67,18 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Coal tag works");
             coalNum += coalIncrement;
-            coalCounterText.SetText($"{coalNum.ToString()}");
         }
 
         //Deposit coal in furnace, refill heat meter and upgrade meter max by how much coal is deposited
         if (collision.gameObject.CompareTag("Furnace"))
         {
             Debug.Log("Furance tag works");
-            if (coalIncrement > 0)
+            if (coalNum > 0)
             {
                 Debug.Log("Player has coal");
-                progress.maxValue += coalIncrement;
+                progress.maxValue += coalNum;
                 progress.ResetBar();
-                coalIncrement = 0f;
+                coalNum = 0f;
             }
 
 
