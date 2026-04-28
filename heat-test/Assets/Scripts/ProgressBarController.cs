@@ -4,8 +4,8 @@ using UnityEngine.UI;
 public class ProgressBarController : MonoBehaviour
 {
     [Header("Progress Bar Settings")]
-    public float maxValue = 100f;
-    public float startValue = 0f;
+    [SerializeField] public float maxValue = 100f;
+    [SerializeField] public float startValue;
 
     [SerializeField] Image progressBar;
     [SerializeField] GameObject limitReachedIndicator;
@@ -69,7 +69,7 @@ public class ProgressBarController : MonoBehaviour
     // Reset back to the start value
     public void ResetBar()
     {
-        CurrentValue = startValue;
+        CurrentValue = maxValue;
         BarUpdate?.Invoke();
     }
 

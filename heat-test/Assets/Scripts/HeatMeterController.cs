@@ -14,6 +14,6 @@ public class HeatMeterController : MonoBehaviour
     void Update()
     {
         progress.Decrease(Time.deltaTime);
-        Debug.Log($"Time:{progress.CurrentValue}");
+        //Debug.Log($"Time:{progress.CurrentValue}");
     }
 }

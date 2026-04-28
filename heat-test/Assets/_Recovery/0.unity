@@ -1273,10 +1273,9 @@ GameObject:
   - component: {fileID: 906808286}
   - component: {fileID: 906808285}
   - component: {fileID: 906808284}
-  - component: {fileID: 906808288}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: CoalNode
-  m_TagString: Coal
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1374,33 +1373,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1013964376}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &906808288
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 906808283}
-  serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 14
-  m_CollisionDetection: 0
 --- !u!1 &973271299
 GameObject:
   m_ObjectHideFlags: 0
@@ -1560,7 +1532,7 @@ GameObject:
   - component: {fileID: 1074582205}
   - component: {fileID: 1074582204}
   m_Layer: 0
-  m_Name: Count Text
+  m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2028,7 +2000,7 @@ GameObject:
   - component: {fileID: 1886484063}
   - component: {fileID: 1886484062}
   - component: {fileID: 1886484061}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2143,10 +2115,9 @@ GameObject:
   - component: {fileID: 2011026413}
   - component: {fileID: 2011026412}
   - component: {fileID: 2011026411}
-  - component: {fileID: 2011026415}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Furnace
-  m_TagString: Furnace
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2245,33 +2216,6 @@ Transform:
   - {fileID: 1886484060}
   m_Father: {fileID: 1013964376}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &2011026415
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2011026410}
-  serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 14
-  m_CollisionDetection: 0
 --- !u!1 &2132735754
 GameObject:
   m_ObjectHideFlags: 0
@@ -2429,10 +2373,6 @@ MonoBehaviour:
   speed: 5
   jumpHeight: 2
   gravity: -9.8
-  coalCounterText: {fileID: 1074582204}
-  coalIncrement: 10
-  furnace: {fileID: 2011026410}
-  progress: {fileID: 343020542}
 --- !u!114 &2132735762
 MonoBehaviour:
   m_ObjectHideFlags: 0
