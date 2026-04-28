@@ -28,8 +28,12 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 move = new Vector3(moveInput.x, 0f, moveInput.y);
         controller.Move(move * Time.deltaTime * moveSpeed);
-
-        healthBar.value += Time.deltaTime;
+        
+        if (moveInput.sqrMagnitude > 0.01f)
+        {
+            float drainRate = healthBar.maxValue * 0.01f; // 10% per second
+            healthBar.value += drainRate * Time.deltaTime;
+        }
 
         if (healthBar.value >= healthBar.maxValue)
         {
@@ -45,11 +49,14 @@ public class PlayerController : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
+        
+       
+        
     }
 
     public void FillHealthBar()
     {
-        healthBar.value -= Time.deltaTime * 20f; //Slowly health to max
+        healthBar.value -= Time.deltaTime * 5f; //Slowly health to max
     }
 
     public void SlightlyFillHealthBar()

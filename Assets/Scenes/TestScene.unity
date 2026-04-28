@@ -159,7 +159,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.5, y: 1.5, z: 1.5}
+  m_Size: {x: 2.5, y: 2.5, z: 2.5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &321204051
 BoxCollider:
@@ -266,7 +266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72c932fa039bead4297e47a75775ec66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Furnace
-  furnace: {fileID: 0}
+  furnace: {fileID: 321204048}
   PlayerController: {fileID: 691212712}
 --- !u!1 &405658427
 GameObject:
