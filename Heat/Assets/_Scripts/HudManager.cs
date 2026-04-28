@@ -11,8 +11,8 @@ public class HudManager : MonoBehaviour
 
     void Update()
     {
-        HeatEnergy.text = "Energy: " + playerController.currentHealth;
+        HeatEnergy.text = "Energy: " + playerController.currentHealth.ToString("0");
         HeatCoal.text = "Coal: " + playerController.playerCoal;
-        EnergyLoss.text = "Energy Drain: " + playerController.energyLoss;
+        EnergyLoss.text = "Energy Drain: " + playerController.energyLoss.ToString("0");
     }
 }

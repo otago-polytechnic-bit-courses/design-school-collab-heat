@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
   
     private Camera mainCamera;
 
-    public int currentHealth;
+    public float currentHealth;
 
     public float energyLoss = 70;
 
@@ -44,15 +44,15 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(playerCoal);
-        if (movement.magnitude > 0) // player is moving
-        {
-            currentHealth -= Mathf.RoundToInt(energyLoss * Time.deltaTime);
-            currentHealth = Mathf.Max(currentHealth, 0); // prevent negative health
-        }
-
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
+
+        Debug.Log(playerCoal);
+        if (movement.magnitude > 0.1f) // player is moving
+        {
+            currentHealth -= energyLoss * Time.deltaTime;
+            currentHealth = Mathf.Max(currentHealth, 0); // prevent negative health
+        }
 
         float currentSpeed = moveSpeed;
 
@@ -86,10 +86,11 @@ public class PlayerController : MonoBehaviour
         if (collision.CompareTag("Furnace"))
         {
             Debug.Log("Furnace detected");
-            if (playerCoal >= 0)
+            if (playerCoal > 0)
             {
                 playerCoal -= 1;
                 energyLoss -= 10;
+                energyLoss = Mathf.Max(energyLoss, 0);
                 Debug.Log("Coal conerted to energy!");
             }
             
