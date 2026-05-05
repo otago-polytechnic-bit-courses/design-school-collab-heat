@@ -13,7 +13,7 @@ public class HeatMeterController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        progress.Decrease(Time.deltaTime);
+        //progress.Decrease(Time.deltaTime);
         //Debug.Log($"Time:{progress.CurrentValue}");
     }
 }

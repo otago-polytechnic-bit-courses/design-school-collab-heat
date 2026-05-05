@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float speed = 5f;
     [SerializeField] private float jumpHeight = 2f;
     [SerializeField] private float gravity = -9.8f;
+    [SerializeField] private float jumpHeatMod;
+    [SerializeField] private float moveHeatMod;
 
     [Header("Coal and Furnace")]
     [SerializeField] public TextMeshProUGUI coalCounterText;
@@ -16,10 +18,37 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public float coalIncrement = 10f;
     [SerializeField] public GameObject furnace;
     [SerializeField] ProgressBarController progress;
+    [SerializeField] CoalController coalController;
+
+    [Header("Misc")]
+    [SerializeField] public bool hasDrill = false;
+    [SerializeField] public GameObject drill;
+    [SerializeField] public bool hasPick = false;
+    [SerializeField] public GameObject pick;
 
     private CharacterController controller;
     private Vector3 moveInput;
     private Vector3 velocity;
+
+    public static PlayerController Instance;
+
+    private void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
+
+        if (!hasDrill)
+        {
+            drill.SetActive(false);
+        }
+
+        if (!hasPick)
+        {
+            pick.SetActive(false);
+        }
+    }
 
     void Start()
     {
@@ -55,6 +84,30 @@ public class PlayerController : MonoBehaviour
 
         //Coal number
         coalCounterText.SetText($"{coalNum.ToString()}");
+
+        //Heat meter reduction
+        if (velocity.y > 0.01f)
+        {
+            //Jump makes it decrease faster
+            progress.Decrease(Time.deltaTime * jumpHeatMod);
+        }
+        else if (moveInput.sqrMagnitude > 0.01f)
+        {
+            // Decreases when player is moving
+            progress.Decrease(Time.deltaTime * moveHeatMod);
+        }
+
+        if (hasDrill)
+        {
+            drill.SetActive(true);
+        }
+        
+        if (hasPick)
+        {
+            pick.SetActive(true);
+        }
+
+        
     }
 
 
@@ -67,6 +120,7 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Coal tag works");
             coalNum += coalIncrement;
+            coalController.totalCoal -= coalIncrement;
         }
 
         //Deposit coal in furnace, refill heat meter and upgrade meter max by how much coal is deposited

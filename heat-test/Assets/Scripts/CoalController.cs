@@ -2,16 +2,24 @@ using UnityEngine;
 
 public class CoalController : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] public float totalCoal;
+
+    public static CoalController Instance;
+
+    private void Awake()
     {
-        
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if(totalCoal <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     void Coal()
