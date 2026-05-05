@@ -3240,7 +3240,7 @@ MonoBehaviour:
   progress: {fileID: 343020542}
   coalController: {fileID: 906808289}
   hasDrill: 0
-  drill: {fileID: 0}
+  drill: {fileID: 1185264883}
   hasPick: 0
   pick: {fileID: 0}
 --- !u!114 &2132735762
