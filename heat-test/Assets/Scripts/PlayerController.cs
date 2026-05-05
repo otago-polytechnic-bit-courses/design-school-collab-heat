@@ -86,8 +86,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        Vector3 camForward = Camera.main.transform.forward;
+        Vector3 camRight = Camera.main.transform.right;
+
         //Move logic
-        Vector3 move = new Vector3(moveInput.x, 0, moveInput.y);
+        Vector3 move = camForward * moveInput.y + camRight * moveInput.x;
         controller.Move(move * speed * Time.deltaTime);
 
 
