@@ -39,15 +39,15 @@ public class PlayerController : MonoBehaviour
         else
             Destroy(gameObject);
 
-        if (!hasDrill)
-        {
-            drill.SetActive(false);
-        }
+        //if (!hasDrill)
+        //{
+        //    drill.SetActive(false);
+        //}
 
-        if (!hasPick)
-        {
-            pick.SetActive(false);
-        }
+        //if (!hasPick)
+        //{
+        //    pick.SetActive(false);
+        //}
     }
 
     void Start()
@@ -73,8 +73,12 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        //Move logic
-        Vector3 move = new Vector3(moveInput.x, 0, moveInput.y);
+        //Camera Angles to offset the player movement based on camera angles so that w still means go up
+        Vector3 camForward = Camera.main.transform.forward;
+        Vector3 camRight = Camera.main.transform.right;
+
+        Vector3 move = camForward * moveInput.y + camRight * moveInput.x;
+
         controller.Move(move * speed * Time.deltaTime);
 
 
