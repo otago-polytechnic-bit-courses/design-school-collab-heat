@@ -71,6 +71,19 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void PickUpDrill()
+    {
+        hasDrill = true;
+        drill.SetActive(true);
+        Debug.Log("Drill is true");
+    }
+
+    public void PickUpPick()
+    {
+        hasPick = true;
+        pick.SetActive(true);
+    }
+
     void Update()
     {
         //Move logic
@@ -97,15 +110,6 @@ public class PlayerController : MonoBehaviour
             progress.Decrease(Time.deltaTime * moveHeatMod);
         }
 
-        if (hasDrill)
-        {
-            drill.SetActive(true);
-        }
-        
-        if (hasPick)
-        {
-            pick.SetActive(true);
-        }
 
         
     }
@@ -116,7 +120,7 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Collision works");
 
         //Pick up coal
-        if (collision.gameObject.CompareTag("Coal"))
+        if (collision.gameObject.CompareTag("Coal") && hasPick == true)
         {
             Debug.Log("Coal tag works");
             coalNum += coalIncrement;

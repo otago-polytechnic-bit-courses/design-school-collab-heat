@@ -5,19 +5,20 @@ public class ItemPickUp : MonoBehaviour
     [SerializeField] public bool isDrill;
     [SerializeField] public bool isPick;
 
-    private void OnCollisionEnter(Collision collision)
+    // Use OnTriggerEnter — works with CharacterController
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
             if (isDrill)
             {
-                PlayerController.Instance.hasDrill = true;
+                PlayerController.Instance.PickUpDrill();
+                Debug.Log("Drill destory");
             }
             else if (isPick)
             {
-                PlayerController.Instance.hasPick = true;
+                PlayerController.Instance.PickUpPick();
             }
-
             Destroy(gameObject);
         }
     }
