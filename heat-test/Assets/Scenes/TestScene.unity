@@ -1075,6 +1075,7 @@ RectTransform:
   - {fileID: 1684716176}
   - {fileID: 1615290391}
   - {fileID: 1922536269}
+  - {fileID: 889149948}
   m_Father: {fileID: 864678568}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1451,6 +1452,95 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &889149947
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 889149948}
+  - component: {fileID: 889149950}
+  - component: {fileID: 889149949}
+  - component: {fileID: 889149951}
+  m_Layer: 5
+  m_Name: InventoryWindow
+  m_TagString: InventoryWindow
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &889149948
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 889149947}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 720246602}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -626.5, y: -331.5}
+  m_SizeDelta: {x: -1253, y: -663}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &889149949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 889149947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.09233712, g: 0.48785585, b: 0.7830189, a: 0.392}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &889149950
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 889149947}
+  m_CullTransparentMesh: 1
+--- !u!114 &889149951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 889149947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f65dba066fb0b44c9e61aba76220b26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InventoryController
+  inventory: []
 --- !u!4 &906808287 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4449561641351827027, guid: 23739ab541a3ada4c987a9020f3af0e4, type: 3}
@@ -2947,6 +3037,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 343020542}
     - target: {fileID: 7050507159830361020, guid: 317f5f85def3f014aab1e130cb925ebc, type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 889149947}
+    - target: {fileID: 7050507159830361020, guid: 317f5f85def3f014aab1e130cb925ebc, type: 3}
       propertyPath: saltControler
       value: 
       objectReference: {fileID: 8906213392856289072}
@@ -2966,6 +3060,10 @@ PrefabInstance:
       propertyPath: saltCounterText
       value: 
       objectReference: {fileID: 3829985}
+    - target: {fileID: 7050507159830361020, guid: 317f5f85def3f014aab1e130cb925ebc, type: 3}
+      propertyPath: inventoryController
+      value: 
+      objectReference: {fileID: 889149951}
     - target: {fileID: 8952305095527320809, guid: 317f5f85def3f014aab1e130cb925ebc, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.92387956

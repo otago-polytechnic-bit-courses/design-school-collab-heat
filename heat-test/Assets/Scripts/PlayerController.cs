@@ -35,12 +35,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public GameObject drill;
     [SerializeField] public bool hasPick = false;
     [SerializeField] public GameObject pick;
-
+    [SerializeField] InventoryController inventoryController;
     private CharacterController controller;
     private Vector3 moveInput;
     private Vector3 velocity;
 
     public static PlayerController Instance;
+
+    [SerializeField] private GameObject inventory;
+    [SerializeField] private bool inventoryOpen = false;
+
+
 
     private void Awake()
     {
@@ -58,11 +63,14 @@ public class PlayerController : MonoBehaviour
         {
             pick.SetActive(false);
         }
+
+
     }
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
+
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -93,6 +101,17 @@ public class PlayerController : MonoBehaviour
         hasPick = true;
         pick.SetActive(true);
     }
+ public void ToggleInventory()
+{
+    inventoryOpen = !inventoryOpen;
+
+    inventory.SetActive(inventoryOpen);
+
+    if (inventoryOpen)
+    {
+        inventoryController.ShowInventory();
+    }
+}
 
     void Update()
     {
@@ -126,8 +145,11 @@ public class PlayerController : MonoBehaviour
             progress.Decrease(Time.deltaTime * moveHeatMod);
         }
 
+        if (Keyboard.current.iKey.wasPressedThisFrame)
+        {
+            ToggleInventory();
+        }
 
-        
     }
 
 
