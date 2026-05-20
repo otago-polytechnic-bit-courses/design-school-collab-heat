@@ -78,6 +78,7 @@ public class PlayerController : MonoBehaviour
         //Debug.Log($"Jumping: {context.performed} - Is Grounded: {controller.isGrounded}");
         if(context.performed && controller.isGrounded)
         {
+            AudioController.Instance.PlaySound("playerJump");
             Debug.Log("Jumped!");
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
@@ -121,6 +122,7 @@ public class PlayerController : MonoBehaviour
         {
             //Jump makes it decrease faster
             progress.Decrease(Time.deltaTime * jumpHeatMod);
+            
         }
         else if (moveInput.sqrMagnitude > 0.01f)
         {
@@ -160,6 +162,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Furance tag works");
             if (coalNum > 0)
             {
+                //AudioController.Instance.PlaySound("furnaceEnter");
                 Debug.Log("Player has coal");
                 progress.maxValue += coalNum;
                 progress.ResetBar();
