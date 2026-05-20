@@ -1,4 +1,5 @@
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -35,6 +36,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public GameObject drill;
     [SerializeField] public bool hasPick = false;
     [SerializeField] public GameObject pick;
+    [SerializeField] public Light flame;
 
     private CharacterController controller;
     private Vector3 moveInput;
@@ -126,7 +128,7 @@ public class PlayerController : MonoBehaviour
             progress.Decrease(Time.deltaTime * moveHeatMod);
         }
 
-
+        updateLight();
         
     }
 
@@ -159,12 +161,28 @@ public class PlayerController : MonoBehaviour
             if (coalNum > 0)
             {
                 Debug.Log("Player has coal");
-                progress.maxValue += coalNum;
-                progress.ResetBar();
+                progress.Increase(coalNum);
                 coalNum = 0f;
             }
 
 
+        }
+    }
+
+    void Die()
+    {
+        PlayerController.Instance.gameObject.SetActive(false);
+    }
+
+    //Updates the light based on heat level. If gets to 0, dies.
+    void updateLight()
+    {
+        flame.intensity = (progress.CurrentValue / progress.maxValue) * 50;
+        flame.range = (progress.CurrentValue / progress.maxValue) * 50;
+
+        if (flame.intensity <= 0)
+        {
+            Die();
         }
     }
 }

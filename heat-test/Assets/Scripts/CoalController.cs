@@ -6,18 +6,6 @@ public class CoalController : MonoBehaviour
 
     public static CoalController Instance;
 
-    private void Awake()
-    {
-        if (Instance == null)
-            Instance = this;
-        else
-        {
-            Debug.Log("Else");
-            Destroy(gameObject);
-        }
-
-    }
-
     void Update()
     {
         if(totalCoal <= 0)
